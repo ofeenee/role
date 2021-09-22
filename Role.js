@@ -22,7 +22,7 @@ function Role({
     function validateRole(string) {
       try {
         if (typeof string === 'string' && string)
-          return ROLES.includes(string.trim().toLowerCase());
+          return ROLES.includes(string);
         else return false;
       }
       catch (error) {
@@ -40,11 +40,13 @@ function Role({
         value: (string) => {
           try {
             string = string?.trim()?.toLowerCase();
-            if (typeof string === 'string' && ROLES.includes(string.toLowerCase())) {
-              return Object.defineProperty(this, 'role', {
+
+            if (validateRole(string)) {
+              Object.defineProperty(this, 'role', {
                 value: string,
                 configurable: true
               });
+              return string;
             }
             else {
               throw new Error('role value is invalid.');
