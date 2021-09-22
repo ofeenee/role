@@ -1,0 +1,19 @@
+{
+  "name": "@ofeenee/role",
+  "version": "0.0.1",
+  "description": "A class for validating, verifying, and managing a user's role... and more.",
+  "main": "Role.js",
+  "scripts": {
+    "test": "mocha || true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ofeenee/role.git"
+  },
+  "author": "ofeenee <ofeenee@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ofeenee/role/issues"
+  },
+  "homepage": "https://github.com/ofeenee/role#readme"
+}
