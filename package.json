@@ -1,6 +1,6 @@
 {
   "name": "@ofeenee/role",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "description": "A class for validating, verifying, and managing a user's role... and more.",
   "main": "Role.js",
