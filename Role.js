@@ -1,20 +1,9 @@
 
-function validatePhone(string) {
-  try {
-    if (typeof string !== 'string' || !string) throw new Error('value is invalid.');
-    return isMobilePhone(string, 'any', { strictMode: true });
-  }
-  catch (error) {
-    throw error;
-  }
-}
+const ROLES = ['admin', 'moderator', 'vip', 'premium', 'member', 'basic'];
 
-function Role({
-  role = 'basic',
-  ROLES = ['admin', 'moderator', 'vip', 'premium', 'member', 'basic']
-} = { role: 'basic', ROLES: ['admin', 'moderator', 'vip', 'premium', 'member', 'basic'] }) {
+function Role(role = null) {
   try {
-    if (new.target === undefined) return new Role({role, ROLES});
+    if (new.target === undefined) return new Role(role);
 
     Object.freeze(ROLES);
 
@@ -33,7 +22,7 @@ function Role({
     // return new instance of Role <role object>
     return Object.defineProperties(this, {
       role: {
-        value: role,
+        value: validateRole(role) ? role : null,
         configurable: true
       },
       set: {
@@ -76,8 +65,3 @@ function Role({
 }
 
 export default Role;
-
-// const role = new Role();
-// console.log(role);
-// console.log(role.get());
-// console.log(role.validate('moderator'));
